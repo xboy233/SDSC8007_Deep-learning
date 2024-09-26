@@ -1,0 +1,32 @@
+model_OneHidden_0-93_09-26_22:30
+	epochs: 10000
+	batch_size: 1024
+	optimizer: SGD
+	learning_rates: {'lr': 0.005}
+	early_stop1000
+Training Loss: 0.764557957649231
+
+Base-L2_0-4041-4459-6277-80_09-26_23-45
+	epochs: 50000
+	batch_size: 512
+	optimizer: SGD
+	learning_rates: {'lr': 0.005}
+	early_stop1000
+Training Loss: 0.8721310496330261
+
+Base-L2_0-4041-4459-6277-80_09-26_23-52
+	epochs: 50000
+	batch_size: 512
+	optimizer: SGD
+	learning_rates: {'lr': 0.005}
+	early_stop200
+Training Loss: 0.8782141208648682
+
+Base-L2_41-4459-6277-80_0926-2356
+	epochs: 20000
+	batch_size: 64
+	optimizer: SGD
+	learning_rates: {'lr': 0.005}
+	early_stop100
+Training Loss: 0.865231146812439
+

@@ -23,7 +23,7 @@ class Dataprocess(Dataset):
     def __init__(self,
                  path,
                  mode='train',
-                 modify=False):
+                 modify=True):
         self.mode = mode
 
         # Read csv file
@@ -35,7 +35,7 @@ class Dataprocess(Dataset):
             feats = list(range(0,93))
         else:
             # Hint:Feature Selection
-            
+            feats = list(range(41,44)) + list(range(59,62)) + list(range(77,80))
             
             
             pass

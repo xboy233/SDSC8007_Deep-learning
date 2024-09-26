@@ -1,7 +1,6 @@
 ## Define DNN by pytorch
 import torch
 import torch.nn as nn
-import os
 
 
 class NeuralNet(nn.Module):
@@ -26,7 +25,7 @@ class NeuralNet(nn.Module):
         ''' Calculate loss '''
         # You may try regularization here
         
-        return self.criterion(pred, target)
+        return torch.sqrt(self.criterion(pred, target))
 
 
 # cuda or cpu

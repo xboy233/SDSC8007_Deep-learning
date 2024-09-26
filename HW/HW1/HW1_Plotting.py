@@ -17,7 +17,7 @@ def plot_learning_curve(loss_record, title=''):
     plt.ylabel('MSE loss')
     plt.title('Learning curve of {}'.format(title))
     plt.legend()
-    plt.show()
+    
     
 def plot_pred(dv_set, model, device, lim=35., preds=None, targets=None):
     ''' Plot prediction of your DNN '''
@@ -41,4 +41,3 @@ def plot_pred(dv_set, model, device, lim=35., preds=None, targets=None):
     plt.xlabel('Truth value')
     plt.ylabel('predicted value')
     plt.title('Truth v.s. Prediction')
-    plt.show()
