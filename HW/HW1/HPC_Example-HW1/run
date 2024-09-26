@@ -1,0 +1,12 @@
+#!/bin/bash
+#SBATCH --partition=coursework
+#SBATCH --nodes=1                # 1 computer nodes
+#SBATCH --ntasks-per-node=1      # 1 MPI tasks on EACH NODE
+#SBATCH --cpus-per-task=4   # 1 OpenMP threads on EACH MPI TASK
+#SBATCH --gres=gpu:1             # Using 1 GPU card
+#SBATCH --mem=50GB               # Request 50GB memory
+#SBATCH --time=02:00:00          # Time limit hrs:min:sec
+#SBATCH --output=./logs/gpujob_%j.log   # Standard output
+#SBATCH --error=./logs/gpujob_%j.err    # Standard error log
+
+python main.py
