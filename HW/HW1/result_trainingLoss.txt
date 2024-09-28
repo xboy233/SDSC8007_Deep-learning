@@ -1,32 +1,74 @@
-model_OneHidden_0-93_09-26_22:30
-	epochs: 10000
-	batch_size: 1024
-	optimizer: SGD
-	learning_rates: {'lr': 0.005}
-	early_stop1000
-Training Loss: 0.764557957649231
 
-Base-L2_0-4041-4459-6277-80_09-26_23-45
-	epochs: 50000
-	batch_size: 512
-	optimizer: SGD
-	learning_rates: {'lr': 0.005}
-	early_stop1000
-Training Loss: 0.8721310496330261
 
-Base-L2_0-4041-4459-6277-80_09-26_23-52
-	epochs: 50000
-	batch_size: 512
-	optimizer: SGD
-	learning_rates: {'lr': 0.005}
-	early_stop200
-Training Loss: 0.8782141208648682
-
-Base-L2_41-4459-6277-80_0926-2356
+Base-L2_0-40+41-44+59-62+77-80_0928-1044
 	epochs: 20000
 	batch_size: 64
 	optimizer: SGD
-	learning_rates: {'lr': 0.005}
-	early_stop100
-Training Loss: 0.865231146812439
+	learning_rates: {'lr': 0.001}
+	early_stop1000
+Training Loss: 1.3229917693138122
+
+Base-L2_0-40+41-44+59-62+77-80_0928-1059
+	epochs: 20000
+	batch_size: 128
+	optimizer: SGD
+	learning_rates: {'lr': 0.001}
+	early_stop1000
+Training Loss: 1.5214102125167848
+
+Base-L2_0-40+41-44+59-62+77-80_0928-1112
+	epochs: 20000
+	batch_size: 128
+	optimizer: SGD
+	learning_rates: {'lr': 0.001}
+	early_stop1000
+Training Loss: 1.5214102125167848
+
+Base_states+symptom+testP_0928-1655
+	epochs: 20000
+	batch_size: 256
+	optimizer: SGD
+	learning_rates: {'lr': 0.001}
+	early_stop1000
+Training Loss: 0.7676059007644653
+
+Base_states+symptom+testP_0928-1705
+	epochs: 20000
+	batch_size: 256
+	optimizer: SGD
+	learning_rates: {'lr': 0.001}
+	early_stop300
+Training Loss: 0.7709358930587769
+
+Base_states+symptom+testP_0928-1709
+	epochs: 20000
+	batch_size: 1024
+	optimizer: SGD
+	learning_rates: {'lr': 0.001}
+	early_stop300
+Training Loss: 0.7760742902755737
+
+ADAM-ReduceLROnPlateau_states-symptom-testP_0928-2035
+	epochs: 5000
+	batch_size: 64
+	optimizer: Adam
+	learning_rates: {'lr': 0.001}
+	early_stop: 500
+Training Loss: 0.923818187713623
+
+ADAM-ReduceLROnPlateau_symptom-testP_0928-2119
+	epochs: 5000
+	batch_size: 64
+	optimizer: Adam
+	learning_rates: {'lr': 0.001}
+	early_stop: 500
+Training Loss: 0.8544239282608033
+
+ADAM-ReduceLROnPlateau_symptom-testP_0928-2122
+	epochs: 5000
+	batch_size: 256
+	optimizer: Adam
+	learning_rates: {'lr': 0.001}
+	early_stop: 500
+Training Loss: 0.8621336817741394
 

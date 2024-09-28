@@ -10,7 +10,9 @@ class NeuralNet(nn.Module):
         # Try to modify this DNN to achieve better performance
         self.net = nn.Sequential(
             nn.Linear(input_dim, 64),
-            nn.ReLU(),
+            nn.BatchNorm1d(64),
+            nn.LeakyReLU(),
+            nn.Dropout(p=0.35),
             nn.Linear(64, 1)
         )
 
@@ -25,7 +27,7 @@ class NeuralNet(nn.Module):
         ''' Calculate loss '''
         # You may try regularization here
         
-        return torch.sqrt(self.criterion(pred, target))
+        return torch.sqrt(self.criterion(pred, target))  # convert RMSE to MSE
 
 
 # cuda or cpu
@@ -42,6 +44,9 @@ def train(tr_set, dv_set, model, config, device):
     # Setup optimizer
     optimizer = getattr(torch.optim, config['optimizer'])(
         model.parameters(), **config['optim_hparas'])
+    
+    # learning rate scheduler 
+    scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer, factor=0.5, patience=50, verbose=True)
 
     min_mse = 1000.
     loss_record = {'train': [], 'dev': []}      # for recording training loss
@@ -68,8 +73,9 @@ def train(tr_set, dv_set, model, config, device):
             early_stop_cnt = 0
         else:
             early_stop_cnt += 1
-
+        
         epoch += 1
+        scheduler.step(dev_mse)     # scheduler
         loss_record['dev'].append(dev_mse)
         if early_stop_cnt > config['early_stop']:
             break

@@ -23,7 +23,7 @@ class Dataprocess(Dataset):
     def __init__(self,
                  path,
                  mode='train',
-                 modify=True):
+                 modify=False):
         self.mode = mode
 
         # Read csv file
@@ -35,9 +35,15 @@ class Dataprocess(Dataset):
             feats = list(range(0,93))
         else:
             # Hint:Feature Selection
-            feats = list(range(41,44)) + list(range(59,62)) + list(range(77,80))
+            # feats_sta = list(range(40))         # 40 states
+            feats_symp1 = list(range(40,44))    # day1 symptom like Covid-19
+            feats_testp1 = [57]                 # day2 tested_positive
+            feats_symp2 = list(range(58,62))    # day2 symptom like Covid-19
+            feats_testp2 = [75]                 # day2 tested_positive 
+            feats_symp3 = list(range(76,80))    # day3 symptom like Covid-19
             
-            
+            feats = feats_symp1 + feats_testp1 + feats_symp2 + feats_testp2 + feats_symp3
+
             pass
 
         if mode == 'test':

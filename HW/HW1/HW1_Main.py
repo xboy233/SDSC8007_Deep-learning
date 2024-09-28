@@ -21,30 +21,31 @@ from HW1_Plotting import plot_pred
 from HW1_Plotting import plt
 
 datestr = curDatetime.strftime("%m%d-%H%M")
-print(datestr)
-model_name = 'Base-L2_41-4459-6277-80_' + datestr     # modelname:model_DNN_Features
+
+model_name = 'ADAM-ReduceLROnPlateau_symptom-testP_' + datestr     # modelname:model_DNN_Features
+
 save_path = './HW/HW1/models/'
 model_path = save_path + model_name + '.pth' # path to new model
 train_path = './HW/HW1/HW1.train.csv'  # path to training data
 test_path = './HW/HW1/HW1.test.csv'   # path to testing data
 record_path = './HW/HW1/result_trainingLoss.txt' # path to record of training loss
 figure_path = './HW/HW1/figures/' # dir of figures
-prediction_result_path = './HW/HW1/prediction_' + model_name + '.csv' # path to prediction_result
+prediction_result_path = './HW/HW1/prediction_result/prediction_' + model_name + '.csv' # path to prediction_result
 
 # Tune these hyper-parameters to improve your model
 # Hyper-Parameters for DNN
 device = get_device()                 # get the current available device ('cpu' or 'cuda')
 os.makedirs(save_path, exist_ok=True)  # The trained model will be saved to ./models/
 os.makedirs(figure_path, exist_ok=True)
-modify = False                        # Need selection
+modify = True                        # Need selection
 config = {
-    'n_epochs': 20000,                # maximum number of epochs
-    'batch_size': 64,               # mini-batch size for dataloader
-    'optimizer': 'SGD',              # optimization algorithm (optimizer in torch.optim)
+    'n_epochs': 5000,                # maximum number of epochs
+    'batch_size': 256,               # mini-batch size for dataloader
+    'optimizer': 'Adam',              # optimization algorithm (optimizer in torch.optim)
     'optim_hparas': {                # hyper-parameters for the optimizer (depends on which optimizer you are using)
-        'lr': 0.005,                 # learning rate of SGD
+        'lr': 0.001,                 # learning rate of SGD
     },
-    'early_stop': 100,               # early stopping epochs (the number epochs since your model's last improvement)
+    'early_stop': 500,               # early stopping epochs (the number epochs since your model's last improvement)
     'save_path': model_path           # your model will be saved here
 }
 
@@ -60,7 +61,7 @@ model_loss, model_loss_record = train(train_set, validation_set, model, config, 
 
 with open(record_path,"a", encoding='utf-8') as f:
     f.write(model_name + '\n')
-    f.write('\tepochs: ' + str(config['n_epochs']) + '\n\tbatch_size: ' + str(config['batch_size']) + '\n\toptimizer: ' + str(config['optimizer']) + '\n\tlearning_rates: ' + str(config['optim_hparas']) + '\n\tearly_stop' + str(config['early_stop']) + '\n')
+    f.write('\tepochs: ' + str(config['n_epochs']) + '\n\tbatch_size: ' + str(config['batch_size']) + '\n\toptimizer: ' + str(config['optimizer']) + '\n\tlearning_rates: ' + str(config['optim_hparas']) + '\n\tearly_stop: ' + str(config['early_stop']) + '\n')
     f.write('Training Loss: ' + str(model_loss) + '\n\n')
 
 # Plot
