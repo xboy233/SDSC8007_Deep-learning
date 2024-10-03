@@ -22,7 +22,7 @@ from HW1_Plotting import plt
 
 datestr = curDatetime.strftime("%m%d-%H%M")
 
-model_name = 'ADAM-ReduceLROnPlateau_symptom-testP_' + datestr     # modelname:model_DNN_Features
+model_name = 'ADAM-CosineAnnealingWarmRestarts_Pearson_' + datestr     # modelname:model_DNN_Features
 
 save_path = './HW/HW1/models/'
 model_path = save_path + model_name + '.pth' # path to new model
@@ -38,14 +38,15 @@ device = get_device()                 # get the current available device ('cpu' 
 os.makedirs(save_path, exist_ok=True)  # The trained model will be saved to ./models/
 os.makedirs(figure_path, exist_ok=True)
 modify = True                        # Need selection
+# tune by Optuna
 config = {
-    'n_epochs': 5000,                # maximum number of epochs
-    'batch_size': 256,               # mini-batch size for dataloader
+    'n_epochs': 2000,                # maximum number of epochs
+    'batch_size': 128,               # mini-batch size for dataloader
     'optimizer': 'Adam',              # optimization algorithm (optimizer in torch.optim)
     'optim_hparas': {                # hyper-parameters for the optimizer (depends on which optimizer you are using)
-        'lr': 0.001,                 # learning rate of SGD
+        'lr': 9e-4,   # learning rate of SGD
     },
-    'early_stop': 500,               # early stopping epochs (the number epochs since your model's last improvement)
+    'early_stop': 300,               # early stopping epochs (the number epochs since your model's last improvement)
     'save_path': model_path           # your model will be saved here
 }
 

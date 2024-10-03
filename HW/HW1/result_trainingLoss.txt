@@ -72,3 +72,59 @@ ADAM-ReduceLROnPlateau_symptom-testP_0928-2122
 	early_stop: 500
 Training Loss: 0.8621336817741394
 
+ADAM-ReduceLROnPlateau_symptom-testP_0929-0837
+	epochs: 5000
+	batch_size: 256
+	optimizer: Adam
+	learning_rates: {'lr': 0.001}
+	early_stop: 500
+Training Loss: 0.8621336817741394
+
+ADAM-ReduceLROnPlateau_symptom-testP_0929-0839
+	epochs: 5000
+	batch_size: 512
+	optimizer: Adam
+	learning_rates: {'lr': 0.001}
+	early_stop: 500
+Training Loss: 0.8602687120437622
+
+ADAM-ReduceLROnPlateau_symptom-testP_0929-2225
+	epochs: 3538
+	batch_size: 59
+	optimizer: Adam
+	learning_rates: {'lr': 0.0005673032930370957}
+	early_stop: 336
+Training Loss: 0.7552018935978413
+
+ADAM-ReduceLROnPlateau_Pearson_Optuna1001-0823
+	epochs: 1655
+	batch_size: 97
+	optimizer: Adam
+	learning_rates: {'lr': 0.0009132534507097574}
+	early_stop: 317
+Training Loss: 0.7398897141218186
+
+ADAM-ReduceLROnPlateau_Pearson_Optuna_1001-0831
+	epochs: 2000
+	batch_size: 128
+	optimizer: Adam
+	learning_rates: {'lr': 0.0009}
+	early_stop: 300
+Training Loss: 0.749691195487976
+
+ADAM-CosineAnnealingWarmRestarts_Pearson_1001-0921
+	epochs: 2000
+	batch_size: 128
+	optimizer: Adam
+	learning_rates: {'lr': 0.0009}
+	early_stop: 300
+Training Loss: 0.8128367233276367
+
+ADAM-CosineAnnealingWarmRestarts_Pearson_1001-0924
+	epochs: 2000
+	batch_size: 128
+	optimizer: Adam
+	learning_rates: {'lr': 0.0009}
+	early_stop: 300
+Training Loss: 0.7553051853179932
+

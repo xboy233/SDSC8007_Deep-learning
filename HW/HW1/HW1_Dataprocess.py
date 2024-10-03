@@ -3,7 +3,6 @@ from HW1_DNN import torch
 from torch.utils.data import Dataset, DataLoader
 import numpy as np
 import csv
-
 # ## Data and Preprocess
 # The function below used to:
 # 1. Read the csv files into python
@@ -18,6 +17,7 @@ torch.manual_seed(myseed)
 if torch.cuda.is_available():
     torch.cuda.manual_seed_all(myseed)
     print("Cuda Training")
+
 
 class Dataprocess(Dataset):
     def __init__(self,
@@ -36,6 +36,8 @@ class Dataprocess(Dataset):
         else:
             # Hint:Feature Selection
             # feats_sta = list(range(40))         # 40 states
+            # xby_revised
+            # Selected by Pearson
             feats_symp1 = list(range(40,44))    # day1 symptom like Covid-19
             feats_testp1 = [57]                 # day2 tested_positive
             feats_symp2 = list(range(58,62))    # day2 symptom like Covid-19
